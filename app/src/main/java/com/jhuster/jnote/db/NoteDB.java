@@ -179,10 +179,12 @@ public class NoteDB {
     }
 
 
+	//得到指定第position位置的Note
 	public Note get(int position) {	    
 	    return get(position,null);
 	}
-	
+
+	//获得指定ID的Note
 	public Note get(long id) {      
 	    String condition = DB_PRIMARY_KEY + "=" + "\'" + id + "\'";  	           
         List<Note> notes = query(condition);
@@ -191,7 +193,8 @@ public class NoteDB {
         }
         return notes.get(0);
     }
-	
+
+	//得到第position位置的Note
 	public Note get(int position,String condition) {  	    
 	    Cursor cursor = mDB.query(DB_TABLE_NAME,null,condition,null,null,null,
 	            DB_DEFAULT_ORDERBY,null);	           
@@ -201,23 +204,27 @@ public class NoteDB {
         }
         return notes.get(0);
 	}
-	
+
+	//查询
 	public List<Note> query() {
 	    Cursor cursor = mDB.query(DB_TABLE_NAME,null,null,null,null,null, 
                 DB_DEFAULT_ORDERBY,null);              
         return extract(0,cursor);
 	}
-	
+
+	//查询
 	public List<Note> query(String condition) {
 	    Cursor cursor = mDB.query(DB_TABLE_NAME,null,condition,null,null,null, 
                 DB_DEFAULT_ORDERBY,null);              
         return extract(0,cursor);
 	}
-	        
+
+	//查询
 	public List<Note> query(int offset,int limit) {	    	        	    
 	    return query(null,offset,limit);
 	}
-	
+
+	//查询
     public List<Note> query(String condition,int offset,int limit) {           
         Cursor cursor = mDB.query(DB_TABLE_NAME,null,condition,null,null,null, 
                 DB_DEFAULT_ORDERBY, offset + "," + limit);              
@@ -248,7 +255,8 @@ public class NoteDB {
         
         return notes;
 	}
-	
+
+	//得到第position位置的key值
 	protected long getkey(int position,String condition) {		
 	    long key = -1;	
 		Cursor cursor = mDB.query(true,DB_TABLE_NAME, new String[]{DB_PRIMARY_KEY},condition,null,null,null, 
