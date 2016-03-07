@@ -11,10 +11,6 @@
  */
 package com.jhuster.jnote;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-import com.jhuster.jnote.db.NoteDB;
-import com.jhuster.jnote.db.NoteDB.Note;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +18,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.jhuster.jnote.db.NoteDB;
+import com.jhuster.jnote.db.NoteDB.Note;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class NoteAdapter extends BaseAdapter {
     
@@ -55,8 +56,8 @@ public class NoteAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {				
 		
 		if (convertView == null) {		
-			LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);          
-            convertView = (LinearLayout)inflater.inflate(R.layout.layout_note_item, null);
+			LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			convertView = (LinearLayout)inflater.inflate(R.layout.layout_note_item, null);
             ViewHolder holder = new ViewHolder();
             holder.mNoteDate = (TextView)convertView.findViewById(R.id.NoteDateText);
             holder.mNoteTitle = (TextView)convertView.findViewById(R.id.NoteTitleText);                       

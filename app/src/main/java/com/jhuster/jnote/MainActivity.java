@@ -11,23 +11,20 @@
  */
 package com.jhuster.jnote;
 
-import java.util.Calendar;
-import com.jhuster.jnote.db.NoteDB;
-import com.jhuster.jnote.db.NoteDB.Note;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ListView;
+import com.jhuster.jnote.db.NoteDB;
+import com.jhuster.jnote.db.NoteDB.Note;
+
+import java.util.Calendar;
 
 public class MainActivity extends BaseActivity implements OnItemClickListener {
     
@@ -73,7 +70,7 @@ public class MainActivity extends BaseActivity implements OnItemClickListener {
                 
             }
        };      
-       mNoteListView.setOnItemLongClickListener(longListener); 
+       mNoteListView.setOnItemLongClickListener(longListener);
        mNoteListView.setOnItemClickListener(this);
     }
 
